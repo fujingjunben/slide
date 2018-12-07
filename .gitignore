@@ -1,0 +1,11 @@
+*.aux
+*.log
+*.pdf
+*.out
+*.vrb
+*.nav
+*.snm
+*.toc
+*.tex~
+*.vrb~
+_region_.tex
