@@ -1,5 +1,6 @@
 \documentclass{beamer}
 \mode<presentation>
+\usetheme{Warsaw}
 \title{There Is No Largest Prime Number}
 \author[Euclid]{Euclid of Alexandria \texttt{euclid@alexandria.edu}}
 \date[ISPN '80]{27th International Symposium of Prime Numbers}
@@ -87,11 +88,29 @@ int main (void)
   \end{uncoverenv}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{An Algorithm For Finding Primes Numbers.}
+\begin{semiverbatim}
+\uncover<1->{\alert<0>{int main (void)}}
+\uncover<1->{\alert<0>{\{}}
+\uncover<1->{\alert<1>{  \alert<4>{std::}vector<bool>is_prime(100, true);}}
+\uncover<1->{\alert<1>{  for (int i = 2; i < 100; i++)}}
+\uncover<2->{\alert<2>{  if (is_prime[i])}}
+\uncover<2->{\alert<0>{    \{}}
+\uncover<3->{\alert<3>{      \alert<4>{std::}cout << i << `` '';}}
+\uncover<3->{\alert<3>{      for (int j = i; j < 100;}}
+\uncover<3->{\alert<3>{           is_prime[j] = false, j+=i);}}
+\uncover<2->{\alert<0>{    \}}}
+\uncover<1->{\alert<0>{  return 0;}}
+\uncover<1->{\alert<0>{\}}}
+\end{semiverbatim}
+  \visible<4->{Note the use of \alert{\texttt{std::}}.}
+\end{frame}
+
+
 \begin{thebibliography}{10}
-  \bibitem{Goldbach1742}[Goldbach, 1742]
-  Christian Goldbach.
-  \newblock A problem we should try to solve before the ISPN '43
-  deadline,
-  \newblock \emph{Letter to Leonhard Euler}, 1742.
+\bibitem{Goldbach1742}[Goldbach, 1742] Christian Goldbach. \newblock A problem
+  we should try to solve before the ISPN '43 deadline, \newblock \emph{Letter to
+    Leonhard Euler}, 1742.
 \end{thebibliography}
 \end{document}
