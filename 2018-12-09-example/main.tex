@@ -1,10 +1,40 @@
-\documentclass{beamer}
+\documentclass[xcolor={dvipsnames}]{beamer}
 % This is the file main.tex
 %% =============================
 \usepackage{ctex} % 增加中文处理
+
+%% =========================================
+%% 定义Kotlin语法高亮
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+%%==============================
 \usetheme{CambridgeUS}
 
-\title{要不要使用Kotlin}
+\lstdefinelanguage{Kotlin}{
+  comment=[l]{//},
+  commentstyle={\color{gray}\ttfamily},
+  emph={delegate, filter, first, firstOrNull, forEach, lazy, map, mapNotNull, println, return@},
+  emphstyle={\color{OrangeRed}},
+  identifierstyle=\color{black},
+  keywords={abstract, actual, as, as?, break, by, class, companion, continue, data, do, dynamic, else, enum, expect, false, final, for, fun, get, if, import, in, interface, internal, is, null, object, override, package, private, public, return, set, super, suspend, this, throw, true, try, typealias, val, var, vararg, when, where, while},
+  keywordstyle={\color{NavyBlue}\bfseries},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[s]{"""*}{*"""},
+  ndkeywords={@Deprecated, @JvmField, @JvmName, @JvmOverloads, @JvmStatic, @JvmSynthetic, Array, Byte, Double, Float, Int, Integer, Iterable, Long, Runnable, Short, String},
+  ndkeywordstyle={\color{BurntOrange}\bfseries},
+  sensitive=true,
+  stringstyle={\color{ForestGreen}\ttfamily},
+showstringspaces=false,
+}
+%% ======================================================
+
+\lstset{
+  showstringspaces = false,
+  basicstyle=\small
+}
+
+\title{Kotlin}
 \author{刘海宽}
 \date{\today}
 
@@ -20,16 +50,94 @@
 \end{frame}
 
 \section{介绍}
-\subsection{Kotlin 小史} 
+\subsection{Kotlin 小史}
+\subsection{Kotlin 特点}
+\begin{frame}{Kotlin 小史}
+  \begin{enumerate}
+  \item<1-> 2011年7月，JetBrains推出Kotlin项目
+  \item<2-> 2012年2月，Kotlin开源
+  \item<3-> 2016年2月，Kotlin v1.0发布
+  \item<4-> 2017年10月，Google宣布Kotlin成为Android官方开发语言
+  \item<5-> 2017年11月，Kotlin v1.2发布
+  \item<6-> 2018年10月，Kotlin v1.3发布
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Kotlin 特点}
+  \begin{enumerate}
+  \item<1-> 语法简单
+  \item<1-> 空指针安全
+  \item<1-> 语法简单
+  \item<1-> 可以编译为JVM字节码或JS和Naive
+  \item<1-> 可以使用现有的Java框架和库
+  \item<1-> Intellij可以把Java自动转为Kotlin
+  \end{enumerate}
+\end{frame}
 
 \section{语法}
-\subsection{...}
+\begin{frame}[fragile]{Hello World}
+  \alert{Kotlin}
+    \begin{lstinputlisting}[language=Kotlin]{code/hello_world.kt}
+    \end{lstinputlisting}
+
+  \alert{Java}
+    \begin{lstinputlisting}[language=java]{code/hello_world.java}
+    \end{lstinputlisting}
+\end{frame}
+
+\begin{frame}[fragile]{常量与变量}
+  \begin{block}{常量}
+
+    使用\emph{val}(即value)关键字定义常量，定义后其值无法修改
+    \begin{lstinputlisting}[language=Kotlin]{code/val.kt}
+    \end{lstinputlisting}
+  \end{block}
+
+  \begin{block}{变量}
+
+  使用\emph{var}(即variable)关键字定义变量
+  \begin{lstinputlisting}[language=Kotlin]{code/var.kt}
+  \end{lstinputlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}{定义函数}
+  使用\emph{fun}关键字定义一个函数
+  \begin{lstinputlisting}[language=Kotlin]{code/fun.kt}
+  \end{lstinputlisting}
+\end{frame}
+
+\begin{frame}{Main进入点}
+  Kotlin的main函数不依赖class，是一个\emph{top-level}函数
+  \begin{lstinputlisting}[language=Kotlin]{code/main.kt}
+  \end{lstinputlisting}
+\end{frame}
+
+\begin{frame}{扩展函数}
+  Kotlin的main函数不依赖class，是一个\emph{top-level}函数
+  \lstinputlisting[language=Kotlin]{code/string_last_char_ext.kt}
+\end{frame}
+
+\begin{frame}{Android的例子}
+  \alert{Java}
+  \lstinputlisting[language=Java]{code/toast_origin.kt}
+  \alert{Kotlin}
+  \lstinputlisting[language=Kotlin]{code/toast_ext.kt}
+\end{frame}
+
+\begin{frame}{Java和Kotlin互相调用}
+  \lstinputlisting[language=Kotlin]{code/user_java.kt}
+\end{frame}
+
+\begin{frame}{Java和Kotlin互相调用}
+  \lstinputlisting[language=Kotlin]{code/user_kotlin.kt}
+\end{frame}
+
 
 \section{应用} % 展示应用场景，增长率等
-\subsection{...}
-\subsection{...}
-
 \begin{frame}
 \end{frame}
+
+\section{如何在现有项目使用Kotlin}
 
 \end{document}

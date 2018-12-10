@@ -9,5 +9,5 @@
 *.tex~
 *.vrb~
 _region_.tex
-document.synctex.gz
+*.synctex.gz
 auto/
